@@ -1,5 +1,5 @@
-using ArchitecturalPatterns.AwesomeShop.Application;
-using ArchitecturalPatterns.AwesomeShop.Infrastructure;
+using AwesomeShop.Application;
+using AwesomeShop.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 

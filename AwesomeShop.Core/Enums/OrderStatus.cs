@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace AwesomeShop.Core.Enums;
 
-namespace ArchitecturalPatterns.AwesomeShop.Core.Enums
+public enum OrderStatus
 {
-    public enum OrderStatus
-    {
-        StartedAndPaymentPending = 1,
-        PreparingForDelivery = 2,
-        Shipped = 3,
-        Delivered = 4,
-        Cancelled = 5
-    }
+    StartedAndPaymentPending = 1,
+    PreparingForDelivery = 2,
+    Shipped = 3,
+    Delivered = 4,
+    Cancelled = 5
 }
