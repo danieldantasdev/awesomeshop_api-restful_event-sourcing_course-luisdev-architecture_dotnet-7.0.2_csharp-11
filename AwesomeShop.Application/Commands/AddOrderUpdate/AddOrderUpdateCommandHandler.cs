@@ -1,24 +1,23 @@
-﻿using ArchitecturalPatterns.AwesomeShop.Core.Repositories;
+﻿using AwesomeShop.Core.Repositories;
 using MediatR;
 
-namespace ArchitecturalPatterns.AwesomeShop.Application.Commands.AddOrderUpdate
+namespace AwesomeShop.Application.Commands.AddOrderUpdate;
+
+public class AddOrderUpdateCommandHandler : IRequestHandler<AddOrderUpdateCommand, Unit>
 {
-    public class AddOrderUpdateCommandHandler : IRequestHandler<AddOrderUpdateCommand,Unit>
+    private readonly IOrderRepository _repository;
+
+    public AddOrderUpdateCommandHandler(IOrderRepository repository)
     {
-        private readonly IOrderRepository _repository;
+        _repository = repository;
+    }
 
-        public AddOrderUpdateCommandHandler(IOrderRepository repository)
-        {
-            _repository = repository;
-        }
+    public async Task<Unit> Handle(AddOrderUpdateCommand request, CancellationToken cancellationToken)
+    {
+        var orderUpdate = request.ToEntity();
 
-        public async Task<Unit> Handle(AddOrderUpdateCommand request, CancellationToken cancellationToken)
-        {
-            var orderUpdate = request.ToEntity();
+        await _repository.AddUpdate(orderUpdate);
 
-            await _repository.AddUpdate(orderUpdate);
-
-            return Unit.Value;
-        }
+        return Unit.Value;
     }
 }

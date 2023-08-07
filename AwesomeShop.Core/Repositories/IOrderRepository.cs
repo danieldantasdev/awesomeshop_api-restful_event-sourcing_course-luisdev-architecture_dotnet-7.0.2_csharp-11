@@ -1,11 +1,10 @@
-﻿using ArchitecturalPatterns.AwesomeShop.Core.Entities;
+﻿using AwesomeShop.Core.Entities;
 
-namespace ArchitecturalPatterns.AwesomeShop.Core.Repositories
+namespace AwesomeShop.Core.Repositories;
+
+public interface IOrderRepository
 {
-    public interface IOrderRepository
-    {
-        Task<Order> GetById(int id);
-        Task<int> Add(Order order);
-        Task AddUpdate(OrderUpdated orderUpdate);
-    }
+    Task<Order> GetById(int id);
+    Task<int> Add(Order order);
+    Task AddUpdate(OrderUpdated orderUpdate);
 }

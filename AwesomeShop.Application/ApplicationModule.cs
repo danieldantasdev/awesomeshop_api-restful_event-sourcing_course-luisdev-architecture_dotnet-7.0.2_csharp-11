@@ -1,24 +1,21 @@
 ﻿using System.Reflection;
-using ArchitecturalPatterns.AwesomeShop.Application.Commands.AddOrder;
-using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ArchitecturalPatterns.AwesomeShop.Application
+namespace AwesomeShop.Application;
+
+public static class ApplicationModule
 {
-    public static class ApplicationModule
+    public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
-        {
-            services
-                .AddMediator();
+        services
+            .AddMediator();
 
-            return services;
-        }
+        return services;
+    }
 
-        private static IServiceCollection AddMediator(this IServiceCollection services)
-        {
-            services.AddMediatR(c => c.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-            return services;
-        }
+    private static IServiceCollection AddMediator(this IServiceCollection services)
+    {
+        services.AddMediatR(c => c.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        return services;
     }
 }
