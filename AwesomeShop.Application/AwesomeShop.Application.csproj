@@ -10,4 +10,9 @@
       <ProjectReference Include="..\AwesomeShop.Core\AwesomeShop.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.1.1" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0-preview.6.23329.7" />
+    </ItemGroup>
+
 </Project>
